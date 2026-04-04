@@ -13,7 +13,7 @@ Usage:
 4. The downloaded songs will be stored in a root directory folder called "batch".
 
 Notes:
-- You can add youtube/soundcloud links however you like to the "*_output_links.txt" file. Good for snagging whichever extra edit/VIP that might only be in some random YT/SC link with double-digit plays.
+- You can add youtube/soundcloud links however you like to the "*_output_links.txt" file. Good for snagging that extra edit/VIP in some random YT/SC link with double-digit plays.
 - Currently uses up to 5 threads for converting playlist into YT links, and up to 3 threads for the actual download execution.
 
 Future:
