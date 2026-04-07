@@ -10,7 +10,7 @@ Usage:
 
 3. Run "python links_to_mp3.py 'Playlist_output_links.txt'" to actually execute the download process for the songs.
 
-4. The downloaded songs will be stored in a root directory folder called "batch".
+4. The downloaded songs will be stored in a root directory folder called "batch/".
 
 Notes:
 - You can add youtube/soundcloud links however you like to the "*_output_links.txt" file. Good for snagging that extra edit/VIP in some random YT/SC link with double-digit plays.
