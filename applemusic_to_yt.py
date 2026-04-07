@@ -41,7 +41,7 @@ def search_song(row):
     if not title:
         return None, None, None
 
-    query = f"{artist} {title} official"
+    query = f"{artist} {title} extended mix"
     print(f"Searching: {query}")
     url = search_youtube(query)
     return title, artist, url
