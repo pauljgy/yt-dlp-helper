@@ -80,5 +80,5 @@ if __name__ == "__main__":
         output_file = sys.argv[2]
     else:
         base = os.path.splitext(os.path.basename(playlist_file))[0]
-        output_file = f"{base}_output_links.txt"
+        output_file = f"{base}_links.txt"
     playlist_to_youtube_links(playlist_file, output_file)
