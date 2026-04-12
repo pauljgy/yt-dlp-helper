@@ -10,7 +10,7 @@ def clean_link(link):
         return link.split("?")[0]
     return link
 
-def download_link(url):
+def download_link(url, folder):
     print(f"--- Downloading: {url} ---")
     subprocess.run([
         "yt-dlp", "-x",
@@ -18,12 +18,15 @@ def download_link(url):
         "--embed-metadata",
         "--cookies-from-browser", "brave",
         "--remote-components", "ejs:github",
-        "-o", "batch/%(title)s.%(ext)s",
+        "-o", f"{folder}/%(title)s.%(ext)s",
         url
     ])
 
 def download_links(links_file, max_workers=4):
-    os.makedirs("batch", exist_ok=True)
+    base_name = os.path.splitext(os.path.basename(links_file))[0]
+    folder = base_name.replace("_links", "")
+
+    os.makedirs(folder, exist_ok=True)
 
     with open(links_file, "r") as f:
         links = []
@@ -34,7 +37,7 @@ def download_links(links_file, max_workers=4):
             links.append(clean_link(link))
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(download_link, url): url for url in links}
+        futures = {executor.submit(download_link, url, folder): url for url in links}
         for future in as_completed(futures):
             url = futures[future]
             try:
@@ -42,7 +45,7 @@ def download_links(links_file, max_workers=4):
             except Exception as e:
                 print(f"--- Failed: {url} — {e} ---")
 
-    print("--- All downloads complete! ---")
+    print(f"--- All downloads complete! Saved to: {folder}/ ---")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
