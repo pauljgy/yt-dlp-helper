@@ -23,8 +23,7 @@ def download_link(url, folder):
     ])
 
 def download_links(links_file, max_workers=4):
-    base_name = os.path.splitext(os.path.basename(links_file))[0]
-    folder = base_name.replace("_links", "")
+    folder = "Recently Downloaded"
 
     os.makedirs(folder, exist_ok=True)
 
