@@ -6,7 +6,7 @@ Usage:
 
 1. Create a .txt file with one link per line (e.g. `links.txt`).
 
-2. Run `python links_to_mp3.py links.txt` to download the audio for each link.
+2. Run `python convert.py links.txt` to download the audio for each link.
 
 3. The downloaded songs will be saved to the `Recently Downloaded/` folder.
 

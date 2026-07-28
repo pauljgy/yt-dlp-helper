@@ -48,7 +48,7 @@ def download_links(links_file, max_workers=4):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python download_links.py <links_file.txt>")
+        print("Usage: python convert.py <links_file.txt>")
         sys.exit(1)
 
     download_links(sys.argv[1])
